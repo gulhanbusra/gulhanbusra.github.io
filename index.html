@@ -3,630 +3,355 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gulhan's Universe Notes | Gülhan'ın Galaksi Notları</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Philosopher:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <title>Gulhan's Universe Notes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Philosopher:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --sage: #8BA888;
-            --forest: #4A6B4E;
-            --mint: #B8E6C9;
-            --pink: #E8B4BC;
-            --rose: #D89CAA;
-            --cream: #FFF9F5;
-            --charcoal: #2C2C2C;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
             font-family: 'Crimson Pro', serif;
-            background: var(--cream);
-            color: var(--charcoal);
+            background: #FFF9F5;
+            color: #2C2C2C;
             line-height: 1.7;
-            overflow-x: hidden;
         }
 
-        .bg-decoration {
-            position: fixed;
-            pointer-events: none;
-            opacity: 0.03;
-            z-index: 0;
-        }
-
-        .lily-pad-1 {
-            width: 200px;
-            height: 200px;
-            background: var(--sage);
-            border-radius: 50% 50% 0 50%;
-            top: 10%;
-            left: -5%;
-            transform: rotate(-15deg);
-            animation: float1 20s ease-in-out infinite;
-        }
-
-        .lily-pad-2 {
-            width: 150px;
-            height: 150px;
-            background: var(--mint);
-            border-radius: 50% 50% 50% 0;
-            bottom: 15%;
-            right: -3%;
-            transform: rotate(25deg);
-            animation: float2 18s ease-in-out infinite;
-        }
-
-        @keyframes float1 {
-            0%, 100% { transform: rotate(-15deg) translateY(0px); }
-            50% { transform: rotate(-18deg) translateY(-20px); }
-        }
-
-        @keyframes float2 {
-            0%, 100% { transform: rotate(25deg) translateY(0px); }
-            50% { transform: rotate(28deg) translateY(30px); }
-        }
-
-        .language-switcher {
+        .lang-switch {
             position: fixed;
             top: 20px;
             right: 20px;
-            z-index: 1000;
             background: white;
-            padding: 0.5rem 1rem;
+            padding: 10px 20px;
             border-radius: 25px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
+            z-index: 1000;
         }
 
         .lang-btn {
-            font-family: 'Philosopher', sans-serif;
             background: none;
             border: none;
-            padding: 0.5rem 1rem;
+            padding: 8px 15px;
             cursor: pointer;
-            font-size: 1rem;
-            color: var(--forest);
-            border-radius: 20px;
-            transition: all 0.3s ease;
+            font-size: 16px;
             font-weight: 600;
-        }
-
-        .lang-btn:hover {
-            background: var(--mint);
+            color: #4A6B4E;
+            border-radius: 20px;
         }
 
         .lang-btn.active {
-            background: var(--sage);
+            background: #8BA888;
             color: white;
         }
 
-        .lang-separator {
-            color: var(--sage);
-            font-size: 1.2rem;
-        }
-
         header {
-            position: relative;
             text-align: center;
-            padding: 4rem 2rem 3rem;
-            background: linear-gradient(135deg, var(--mint) 0%, var(--cream) 100%);
-            border-bottom: 3px solid var(--sage);
+            padding: 60px 20px 40px;
+            background: linear-gradient(135deg, #B8E6C9 0%, #FFF9F5 100%);
+            border-bottom: 3px solid #8BA888;
         }
 
-        .frog-icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            display: inline-block;
-            animation: hop 3s ease-in-out infinite;
-        }
-
-        @keyframes hop {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            10% { transform: translateY(-15px) rotate(-5deg); }
-            20% { transform: translateY(0) rotate(0deg); }
-            30% { transform: translateY(-10px) rotate(3deg); }
-            40% { transform: translateY(0) rotate(0deg); }
-        }
+        .frog { font-size: 60px; margin-bottom: 20px; }
 
         h1 {
             font-family: 'Philosopher', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: var(--forest);
-            margin-bottom: 0.5rem;
-            letter-spacing: 0.5px;
+            font-size: 48px;
+            color: #4A6B4E;
+            margin-bottom: 10px;
         }
 
         .tagline {
             font-family: 'Philosopher', sans-serif;
-            font-size: 1.2rem;
-            color: var(--rose);
+            font-size: 20px;
+            color: #D89CAA;
             font-style: italic;
-            font-weight: 400;
         }
 
         nav {
             position: sticky;
             top: 0;
             background: rgba(255, 249, 245, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
-            border-bottom: 2px solid var(--pink);
+            padding: 15px 20px;
+            border-bottom: 2px solid #E8B4BC;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
+            text-align: center;
         }
 
         .nav-link {
             font-family: 'Philosopher', sans-serif;
-            color: var(--forest);
+            color: #4A6B4E;
             text-decoration: none;
-            padding: 0.5rem 1rem;
+            padding: 8px 15px;
+            margin: 0 10px;
             border-radius: 20px;
-            transition: all 0.3s ease;
-            position: relative;
-            font-weight: 400;
+            display: inline-block;
         }
 
         .nav-link:hover {
-            background: var(--mint);
-            color: var(--charcoal);
-            transform: translateY(-2px);
-        }
-
-        .nav-link.active {
-            background: var(--sage);
-            color: white;
+            background: #B8E6C9;
         }
 
         main {
-            position: relative;
             max-width: 800px;
-            margin: 3rem auto;
-            padding: 0 2rem;
-            z-index: 1;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .welcome {
+            background: linear-gradient(135deg, #8BA888 0%, #4A6B4E 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .welcome h2 {
+            font-family: 'Philosopher', sans-serif;
+            font-size: 32px;
+            margin-bottom: 15px;
         }
 
         .section {
-            margin-bottom: 4rem;
-            opacity: 0;
-            animation: fadeIn 0.8s ease-out forwards;
-        }
-
-        .section:nth-child(1) { animation-delay: 0.2s; }
-        .section:nth-child(2) { animation-delay: 0.4s; }
-        .section:nth-child(3) { animation-delay: 0.6s; }
-        .section:nth-child(4) { animation-delay: 0.8s; }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            margin-bottom: 60px;
         }
 
         .section-header {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid var(--pink);
+            gap: 15px;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #E8B4BC;
         }
 
-        .section-icon {
-            font-size: 2rem;
-        }
+        .section-icon { font-size: 32px; }
 
         .section-title {
             font-family: 'Philosopher', sans-serif;
-            font-size: 2rem;
-            color: var(--forest);
+            font-size: 28px;
+            color: #4A6B4E;
             font-weight: 700;
         }
 
         .post {
             background: white;
-            padding: 2rem;
-            margin-bottom: 2rem;
+            padding: 30px;
+            margin-bottom: 30px;
             border-radius: 12px;
-            border-left: 4px solid var(--sage);
+            border-left: 4px solid #8BA888;
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-        }
-
-        .post:hover {
-            transform: translateX(8px);
-            box-shadow: 0 6px 20px rgba(138, 168, 136, 0.15);
-            border-left-color: var(--pink);
-        }
-
-        .post-date {
-            font-size: 0.9rem;
-            color: var(--rose);
-            margin-bottom: 0.5rem;
-            font-style: italic;
         }
 
         .post-title {
             font-family: 'Philosopher', sans-serif;
-            font-size: 1.8rem;
-            color: var(--forest);
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .post-excerpt {
-            color: var(--charcoal);
-            line-height: 1.8;
-            font-size: 1.1rem;
-        }
-
-        .welcome {
-            background: linear-gradient(135deg, var(--sage) 0%, var(--forest) 100%);
-            color: white;
-            padding: 3rem;
-            border-radius: 12px;
-            margin-bottom: 3rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .welcome::before {
-            content: '🐸';
-            position: absolute;
-            font-size: 8rem;
-            opacity: 0.1;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .welcome-title {
-            font-family: 'Philosopher', sans-serif;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .welcome-text {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            position: relative;
-            z-index: 1;
-        }
-
-        footer {
-            text-align: center;
-            padding: 3rem 2rem;
-            background: var(--forest);
-            color: var(--mint);
-            margin-top: 4rem;
-        }
-
-        footer p {
-            font-size: 0.9rem;
-        }
-
-        .footer-frog {
-            font-size: 1.5rem;
-            display: inline-block;
-            margin-bottom: 1rem;
-            animation: hop 3s ease-in-out infinite;
+            font-size: 24px;
+            color: #4A6B4E;
+            margin-bottom: 15px;
         }
 
         .coming-soon {
             text-align: center;
-            padding: 3rem 2rem;
-            color: var(--sage);
+            padding: 40px;
+            color: #8BA888;
             font-style: italic;
-            background: linear-gradient(135deg, rgba(184, 230, 201, 0.1) 0%, rgba(232, 180, 188, 0.1) 100%);
+            background: rgba(184, 230, 201, 0.1);
             border-radius: 12px;
-            border: 2px dashed var(--sage);
+            border: 2px dashed #8BA888;
         }
 
-        /* Language switching - FIXED VERSION */
-        .tr {
-            display: none;
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: #4A6B4E;
+            color: #B8E6C9;
+            margin-top: 60px;
         }
 
-        body.turkish .en {
-            display: none;
-        }
-
-        body.turkish .tr {
-            display: inline;
-        }
-
-        h1.tr, h2.tr, p.tr, div.tr {
-            display: none;
-        }
-
-        body.turkish h1.en, body.turkish h2.en, body.turkish p.en, body.turkish div.en {
-            display: none;
-        }
-
-        body.turkish h1.tr, body.turkish h2.tr, body.turkish p.tr, body.turkish div.tr {
-            display: block;
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            .nav-container {
-                gap: 0.8rem;
-            }
-
-            .nav-link {
-                font-size: 0.9rem;
-                padding: 0.4rem 0.8rem;
-            }
-
-            .section-title {
-                font-size: 1.6rem;
-            }
-
-            .post-title {
-                font-size: 1.5rem;
-            }
-
-            main {
-                padding: 0 1.5rem;
-            }
-
-            .language-switcher {
-                top: 10px;
-                right: 10px;
-                padding: 0.4rem 0.8rem;
-            }
-
-            .lang-btn {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.9rem;
-            }
-        }
+        .hide { display: none; }
     </style>
 </head>
 <body>
-    <div class="bg-decoration lily-pad-1"></div>
-    <div class="bg-decoration lily-pad-2"></div>
-
-    <div class="language-switcher">
-        <button class="lang-btn active" onclick="switchLanguage('en')">🇬🇧 EN</button>
-        <span class="lang-separator">|</span>
-        <button class="lang-btn" onclick="switchLanguage('tr')">🇹🇷 TR</button>
+    <div class="lang-switch">
+        <button class="lang-btn active" onclick="showEN()">🇬🇧 EN</button>
+        |
+        <button class="lang-btn" onclick="showTR()">🇹🇷 TR</button>
     </div>
 
     <header>
-        <div class="frog-icon">🐸</div>
-        <h1 class="en">Gulhan's Universe Notes</h1>
-        <h1 class="tr">Gülhan'ın Galaksi Notları</h1>
-        <p class="tagline en">A diary of thoughts, people, and the princes who turned into frogs 💋</p>
-        <p class="tagline tr">Düşüncelerim, insanlar ve öptüğümde kurbağaya dönüşen prensler hakkında bir günlük 💋</p>
+        <div class="frog">🐸</div>
+        <div id="en-header">
+            <h1>Gulhan's Universe Notes</h1>
+            <p class="tagline">A diary of thoughts, people, and the princes who turned into frogs 💋</p>
+        </div>
+        <div id="tr-header" class="hide">
+            <h1>Gülhan'ın Galaksi Notları</h1>
+            <p class="tagline">Düşüncelerim, insanlar ve öptüğümde kurbağaya dönüşen prensler hakkında bir günlük 💋</p>
+        </div>
     </header>
 
     <nav>
-        <div class="nav-container">
-            <a href="#home" class="nav-link active">
-                <span class="en">There's No Place Like Home</span>
-                <span class="tr">Ev Gibisi Yoktur</span>
-            </a>
-            <a href="#frogs" class="nav-link">
-                <span class="en">The Kiss & The Frogs</span>
-                <span class="tr">Öpücük ve Kurbağalar</span>
-            </a>
-            <a href="#life" class="nav-link">
-                <span class="en">Life & Reflections</span>
-                <span class="tr">Hayat ve Düşünceler</span>
-            </a>
-            <a href="#podcasts" class="nav-link">
-                <span class="en">Podcasts to the Earth</span>
-                <span class="tr">Dünya'ya Podcastler</span>
-            </a>
-            <a href="#about" class="nav-link">
-                <span class="en">Me, Myself & I</span>
-                <span class="tr">Ben, Benim, Benlik</span>
-            </a>
+        <div id="en-nav">
+            <a href="#home" class="nav-link">There's No Place Like Home</a>
+            <a href="#frogs" class="nav-link">The Kiss & The Frogs</a>
+            <a href="#life" class="nav-link">Life & Reflections</a>
+            <a href="#podcasts" class="nav-link">Podcasts to the Earth</a>
+            <a href="#about" class="nav-link">Me, Myself & I</a>
+        </div>
+        <div id="tr-nav" class="hide">
+            <a href="#home" class="nav-link">Ev Gibisi Yoktur</a>
+            <a href="#frogs" class="nav-link">Öpücük ve Kurbağalar</a>
+            <a href="#life" class="nav-link">Hayat ve Düşünceler</a>
+            <a href="#podcasts" class="nav-link">Dünya'ya Podcastler</a>
+            <a href="#about" class="nav-link">Ben, Benim, Benlik</a>
         </div>
     </nav>
 
     <main>
         <div class="welcome">
-            <h2 class="welcome-title en">There's No Place Like Home 🏠</h2>
-            <h2 class="welcome-title tr">Ev Gibisi Yoktur 🏠</h2>
-            <p class="welcome-text en">
-                This is where I collect the fragments of my days—the conversations that linger, 
-                the people who leave marks, and the quiet revelations that appear between 
-                the everyday moments. Come, sit with me in this little corner of the internet.
-            </p>
-            <p class="welcome-text tr">
-                Burası günlerimin parçalarını topladığım yer: aklımda kalan konuşmalar, 
-                iz bırakan insanlar ve günlük anların arasında beliren sessiz vahiyler. 
-                Gel, internetin bu küçük köşesinde benimle otur.
-            </p>
+            <div id="en-welcome">
+                <h2>There's No Place Like Home 🏠</h2>
+                <p>This is where I collect the fragments of my days—the conversations that linger, the people who leave marks, and the quiet revelations that appear between the everyday moments. Come, sit with me in this little corner of the internet.</p>
+            </div>
+            <div id="tr-welcome" class="hide">
+                <h2>Ev Gibisi Yoktur 🏠</h2>
+                <p>Burası günlerimin parçalarını topladığım yer: aklımda kalan konuşmalar, iz bırakan insanlar ve günlük anların arasında beliren sessiz vahiyler. Gel, internetin bu küçük köşesinde benimle otur.</p>
+            </div>
         </div>
 
         <section id="frogs" class="section">
             <div class="section-header">
                 <span class="section-icon">👑🐸💋</span>
-                <h2 class="section-title en">The Kiss That Turned Princes to Frogs</h2>
-                <h2 class="section-title tr">Prensleri Kurbağa'ya Çeviren Öpücük</h2>
+                <h2 class="section-title" id="en-frogs-title">The Kiss That Turned Princes to Frogs</h2>
+                <h2 class="section-title hide" id="tr-frogs-title">Prensleri Kurbağa'ya Çeviren Öpücük</h2>
             </div>
-            
             <div class="coming-soon">
-                <p style="font-size: 1.2rem; margin-bottom: 0.5rem;" class="en">✨ Stories coming soon ✨</p>
-                <p class="en">The tales of kisses that didn't break spells, but created them...</p>
-                <p style="font-size: 1.2rem; margin-bottom: 0.5rem;" class="tr">✨ Hikayeler yakında ✨</p>
-                <p class="tr">Büyüyü bozamayan, aksine yaratan öpücüklerin hikayeleri...</p>
+                <p id="en-frogs-text">✨ Stories coming soon ✨<br>The tales of kisses that didn't break spells, but created them...</p>
+                <p id="tr-frogs-text" class="hide">✨ Hikayeler yakında ✨<br>Büyüyü bozamayan, aksine yaratan öpücüklerin hikayeleri...</p>
             </div>
         </section>
 
         <section id="life" class="section">
             <div class="section-header">
                 <span class="section-icon">🌿✨</span>
-                <h2 class="section-title en">Life & Reflections</h2>
-                <h2 class="section-title tr">Hayat ve Düşünceler</h2>
+                <h2 class="section-title" id="en-life-title">Life & Reflections</h2>
+                <h2 class="section-title hide" id="tr-life-title">Hayat ve Düşünceler</h2>
             </div>
-            
             <div class="coming-soon">
-                <p style="font-size: 1.2rem; margin-bottom: 0.5rem;" class="en">✨ Reflections coming soon ✨</p>
-                <p class="en">Thoughts on growth, patterns, and the art of becoming...</p>
-                <p style="font-size: 1.2rem; margin-bottom: 0.5rem;" class="tr">✨ Düşünceler yakında ✨</p>
-                <p class="tr">Büyüme, örüntüler ve olma sanatı üzerine düşünceler...</p>
+                <p id="en-life-text">✨ Reflections coming soon ✨<br>Thoughts on growth, patterns, and the art of becoming...</p>
+                <p id="tr-life-text" class="hide">✨ Düşünceler yakında ✨<br>Büyüme, örüntüler ve olma sanatı üzerine düşünceler...</p>
             </div>
         </section>
 
         <section id="podcasts" class="section">
             <div class="section-header">
                 <span class="section-icon">🎙️🌍</span>
-                <h2 class="section-title en">Podcasts to the Earth</h2>
-                <h2 class="section-title tr">Dünya'ya Podcastler</h2>
+                <h2 class="section-title" id="en-pod-title">Podcasts to the Earth</h2>
+                <h2 class="section-title hide" id="tr-pod-title">Dünya'ya Podcastler</h2>
             </div>
-            
             <div class="coming-soon">
-                <p style="font-size: 1.2rem; margin-bottom: 0.5rem;" class="en">✨ Coming soon ✨</p>
-                <p class="en">Conversations across continents, cousins across countries, thoughts across time zones...</p>
-                <p style="font-size: 1.2rem; margin-bottom: 0.5rem;" class="tr">✨ Yakında ✨</p>
-                <p class="tr">Kıtalar arası sohbetler, ülkeler arası kuzenler, zaman dilimleri arası düşünceler...</p>
+                <p id="en-pod-text">✨ Coming soon ✨<br>Conversations across continents, cousins across countries, thoughts across time zones...</p>
+                <p id="tr-pod-text" class="hide">✨ Yakında ✨<br>Kıtalar arası sohbetler, ülkeler arası kuzenler, zaman dilimleri arası düşünceler...</p>
             </div>
         </section>
 
         <section id="about" class="section">
             <div class="section-header">
                 <span class="section-icon">💭✨</span>
-                <h2 class="section-title en">Me, Myself & I</h2>
-                <h2 class="section-title tr">Ben, Benim, Benlik</h2>
+                <h2 class="section-title" id="en-about-title">Me, Myself & I</h2>
+                <h2 class="section-title hide" id="tr-about-title">Ben, Benim, Benlik</h2>
             </div>
-            
             <div class="post">
-                <h3 class="post-title en">The Three of Us</h3>
-                <h3 class="post-title tr">Üçümüz</h3>
-                <div class="post-excerpt en">
-                    <p style="margin-bottom: 1rem;">
-                        This section is waiting for your story. This is where you'll introduce yourself—
-                        who you are beyond the resume, beyond the roles. The person who hosts sangria parties, 
-                        who plays pickleball, who thinks deeply about patterns and connection.
-                    </p>
-                    <p>
-                        Write about what makes your universe uniquely yours.
-                    </p>
+                <h3 class="post-title" id="en-about-subtitle">The Three of Us</h3>
+                <h3 class="post-title hide" id="tr-about-subtitle">Üçümüz</h3>
+                <div id="en-about-text">
+                    <p style="margin-bottom: 15px;">This section is waiting for your story. This is where you'll introduce yourself—who you are beyond the resume, beyond the roles. The person who hosts sangria parties, who plays pickleball, who thinks deeply about patterns and connection.</p>
+                    <p>Write about what makes your universe uniquely yours.</p>
                 </div>
-                <div class="post-excerpt tr">
-                    <p style="margin-bottom: 1rem;">
-                        Bu bölüm senin hikayeni bekliyor. Burası kendini tanıtacağın yer—
-                        özgeçmişinin ötesinde, rollerin ötesinde kim olduğun. Sangria partileri düzenleyen, 
-                        pickleball oynayan, örüntüler ve bağlantılar üzerine derin düşünen kişi.
-                    </p>
-                    <p>
-                        Galaksini benzersiz kılan şeyi yaz.
-                    </p>
+                <div id="tr-about-text" class="hide">
+                    <p style="margin-bottom: 15px;">Bu bölüm senin hikayeni bekliyor. Burası kendini tanıtacağın yer—özgeçmişinin ötesinde, rollerin ötesinde kim olduğun. Sangria partileri düzenleyen, pickleball oynayan, örüntüler ve bağlantılar üzerine derin düşünen kişi.</p>
+                    <p>Galaksini benzersiz kılan şeyi yaz.</p>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="footer-frog">🐸</div>
-        <p class="en">&copy; 2026 Gulhan's Universe Notes. All musings, all mine.</p>
-        <p class="tr">&copy; 2026 Gülhan'ın Galaksi Notları. Tüm düşünceler benim.</p>
-        <p style="margin-top: 0.5rem; font-size: 0.8rem; opacity: 0.8;" class="en">
-            "Sometimes the prince was the frog all along." 🌙
-        </p>
-        <p style="margin-top: 0.5rem; font-size: 0.8rem; opacity: 0.8;" class="tr">
-            "Bazen prens en başından beri kurbağaydı." 🌙
-        </p>
+        <div style="font-size: 24px; margin-bottom: 15px;">🐸</div>
+        <p id="en-footer">&copy; 2026 Gulhan's Universe Notes. All musings, all mine.<br><span style="font-size: 14px; opacity: 0.8;">"Sometimes the prince was the frog all along." 🌙</span></p>
+        <p id="tr-footer" class="hide">&copy; 2026 Gülhan'ın Galaksi Notları. Tüm düşünceler benim.<br><span style="font-size: 14px; opacity: 0.8;">"Bazen prens en başından beri kurbağaydı." 🌙</span></p>
     </footer>
 
     <script>
-        function switchLanguage(lang) {
-            const buttons = document.querySelectorAll('.lang-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            
-            if (lang === 'tr') {
-                document.body.classList.add('turkish');
-                buttons[1].classList.add('active');
-                document.documentElement.lang = 'tr';
-            } else {
-                document.body.classList.remove('turkish');
-                buttons[0].classList.add('active');
-                document.documentElement.lang = 'en';
-            }
-            
-            localStorage.setItem('preferredLanguage', lang);
+        function showEN() {
+            // Show English
+            document.getElementById('en-header').classList.remove('hide');
+            document.getElementById('en-nav').classList.remove('hide');
+            document.getElementById('en-welcome').classList.remove('hide');
+            document.getElementById('en-frogs-title').classList.remove('hide');
+            document.getElementById('en-frogs-text').classList.remove('hide');
+            document.getElementById('en-life-title').classList.remove('hide');
+            document.getElementById('en-life-text').classList.remove('hide');
+            document.getElementById('en-pod-title').classList.remove('hide');
+            document.getElementById('en-pod-text').classList.remove('hide');
+            document.getElementById('en-about-title').classList.remove('hide');
+            document.getElementById('en-about-subtitle').classList.remove('hide');
+            document.getElementById('en-about-text').classList.remove('hide');
+            document.getElementById('en-footer').classList.remove('hide');
+
+            // Hide Turkish
+            document.getElementById('tr-header').classList.add('hide');
+            document.getElementById('tr-nav').classList.add('hide');
+            document.getElementById('tr-welcome').classList.add('hide');
+            document.getElementById('tr-frogs-title').classList.add('hide');
+            document.getElementById('tr-frogs-text').classList.add('hide');
+            document.getElementById('tr-life-title').classList.add('hide');
+            document.getElementById('tr-life-text').classList.add('hide');
+            document.getElementById('tr-pod-title').classList.add('hide');
+            document.getElementById('tr-pod-text').classList.add('hide');
+            document.getElementById('tr-about-title').classList.add('hide');
+            document.getElementById('tr-about-subtitle').classList.add('hide');
+            document.getElementById('tr-about-text').classList.add('hide');
+            document.getElementById('tr-footer').classList.add('hide');
+
+            // Update buttons
+            document.querySelectorAll('.lang-btn')[0].classList.add('active');
+            document.querySelectorAll('.lang-btn')[1].classList.remove('active');
         }
 
-        window.addEventListener('DOMContentLoaded', function() {
-            const savedLang = localStorage.getItem('preferredLanguage');
-            if (savedLang === 'tr') {
-                switchLanguage('tr');
-            }
-        });
+        function showTR() {
+            // Hide English
+            document.getElementById('en-header').classList.add('hide');
+            document.getElementById('en-nav').classList.add('hide');
+            document.getElementById('en-welcome').classList.add('hide');
+            document.getElementById('en-frogs-title').classList.add('hide');
+            document.getElementById('en-frogs-text').classList.add('hide');
+            document.getElementById('en-life-title').classList.add('hide');
+            document.getElementById('en-life-text').classList.add('hide');
+            document.getElementById('en-pod-title').classList.add('hide');
+            document.getElementById('en-pod-text').classList.add('hide');
+            document.getElementById('en-about-title').classList.add('hide');
+            document.getElementById('en-about-subtitle').classList.add('hide');
+            document.getElementById('en-about-text').classList.add('hide');
+            document.getElementById('en-footer').classList.add('hide');
 
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-                this.classList.add('active');
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#home') {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                } else {
-                    const target = document.querySelector(targetId);
-                    if (target) {
-                        const offsetTop = target.offsetTop - 100;
-                        window.scrollTo({ top: offsetTop, behavior: 'smooth' });
-                    }
-                }
-            });
-        });
+            // Show Turkish
+            document.getElementById('tr-header').classList.remove('hide');
+            document.getElementById('tr-nav').classList.remove('hide');
+            document.getElementById('tr-welcome').classList.remove('hide');
+            document.getElementById('tr-frogs-title').classList.remove('hide');
+            document.getElementById('tr-frogs-text').classList.remove('hide');
+            document.getElementById('tr-life-title').classList.remove('hide');
+            document.getElementById('tr-life-text').classList.remove('hide');
+            document.getElementById('tr-pod-title').classList.remove('hide');
+            document.getElementById('tr-pod-text').classList.remove('hide');
+            document.getElementById('tr-about-title').classList.remove('hide');
+            document.getElementById('tr-about-subtitle').classList.remove('hide');
+            document.getElementById('tr-about-text').classList.remove('hide');
+            document.getElementById('tr-footer').classList.remove('hide');
 
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('.section');
-            let current = '';
-
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 150;
-                if (window.pageYOffset >= sectionTop) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            if (window.pageYOffset < 300) {
-                current = 'home';
-            }
-
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) {
-                    link.classList.add('active');
-                }
-            });
-        });
+            // Update buttons
+            document.querySelectorAll('.lang-btn')[0].classList.remove('active');
+            document.querySelectorAll('.lang-btn')[1].classList.add('active');
+        }
     </script>
 </body>
 </html>
