@@ -346,35 +346,28 @@
             border: 2px dashed var(--sage);
         }
 
-        .podcast-player {
-            background: linear-gradient(135deg, var(--pink) 0%, var(--rose) 100%);
-            padding: 2rem;
-            border-radius: 12px;
-            text-align: center;
-            color: white;
-            margin-bottom: 2rem;
-        }
-
-        .podcast-player h4 {
-            font-family: 'Philosopher', sans-serif;
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .podcast-player p {
-            opacity: 0.9;
-            margin-bottom: 1rem;
-        }
-
-        [lang="tr"] {
+        /* Language switching - FIXED VERSION */
+        .tr {
             display: none;
         }
 
-        body.turkish [lang="en"] {
+        body.turkish .en {
             display: none;
         }
 
-        body.turkish [lang="tr"] {
+        body.turkish .tr {
+            display: inline;
+        }
+
+        h1.tr, h2.tr, p.tr, div.tr {
+            display: none;
+        }
+
+        body.turkish h1.en, body.turkish h2.en, body.turkish p.en, body.turkish div.en {
+            display: none;
+        }
+
+        body.turkish h1.tr, body.turkish h2.tr, body.turkish p.tr, body.turkish div.tr {
             display: block;
         }
 
@@ -429,47 +422,47 @@
 
     <header>
         <div class="frog-icon">🐸</div>
-        <h1 lang="en">Gulhan's Universe Notes</h1>
-        <h1 lang="tr">Gülhan'ın Galaksi Notları</h1>
-        <p class="tagline" lang="en">A diary of thoughts, people, and the princes who turned into frogs 💋</p>
-        <p class="tagline" lang="tr">Düşüncelerim, insanlar ve öptüğümde kurbağaya dönüşen prensler hakkında bir günlük 💋</p>
+        <h1 class="en">Gulhan's Universe Notes</h1>
+        <h1 class="tr">Gülhan'ın Galaksi Notları</h1>
+        <p class="tagline en">A diary of thoughts, people, and the princes who turned into frogs 💋</p>
+        <p class="tagline tr">Düşüncelerim, insanlar ve öptüğümde kurbağaya dönüşen prensler hakkında bir günlük 💋</p>
     </header>
 
     <nav>
         <div class="nav-container">
             <a href="#home" class="nav-link active">
-                <span lang="en">There's No Place Like Home</span>
-                <span lang="tr">Ev Gibisi Yoktur</span>
+                <span class="en">There's No Place Like Home</span>
+                <span class="tr">Ev Gibisi Yoktur</span>
             </a>
             <a href="#frogs" class="nav-link">
-                <span lang="en">The Kiss & The Frogs</span>
-                <span lang="tr">Öpücük ve Kurbağalar</span>
+                <span class="en">The Kiss & The Frogs</span>
+                <span class="tr">Öpücük ve Kurbağalar</span>
             </a>
             <a href="#life" class="nav-link">
-                <span lang="en">Life & Reflections</span>
-                <span lang="tr">Hayat ve Düşünceler</span>
+                <span class="en">Life & Reflections</span>
+                <span class="tr">Hayat ve Düşünceler</span>
             </a>
             <a href="#podcasts" class="nav-link">
-                <span lang="en">Podcasts to the Earth</span>
-                <span lang="tr">Dünya'ya Podcastler</span>
+                <span class="en">Podcasts to the Earth</span>
+                <span class="tr">Dünya'ya Podcastler</span>
             </a>
             <a href="#about" class="nav-link">
-                <span lang="en">Me, Myself & I</span>
-                <span lang="tr">Ben, Benim, Benlik</span>
+                <span class="en">Me, Myself & I</span>
+                <span class="tr">Ben, Benim, Benlik</span>
             </a>
         </div>
     </nav>
 
     <main>
         <div class="welcome">
-            <h2 class="welcome-title" lang="en">There's No Place Like Home 🏠</h2>
-            <h2 class="welcome-title" lang="tr">Ev Gibisi Yoktur 🏠</h2>
-            <p class="welcome-text" lang="en">
+            <h2 class="welcome-title en">There's No Place Like Home 🏠</h2>
+            <h2 class="welcome-title tr">Ev Gibisi Yoktur 🏠</h2>
+            <p class="welcome-text en">
                 This is where I collect the fragments of my days—the conversations that linger, 
                 the people who leave marks, and the quiet revelations that appear between 
                 the everyday moments. Come, sit with me in this little corner of the internet.
             </p>
-            <p class="welcome-text" lang="tr">
+            <p class="welcome-text tr">
                 Burası günlerimin parçalarını topladığım yer: aklımda kalan konuşmalar, 
                 iz bırakan insanlar ve günlük anların arasında beliren sessiz vahiyler. 
                 Gel, internetin bu küçük köşesinde benimle otur.
@@ -478,60 +471,60 @@
 
         <section id="frogs" class="section">
             <div class="section-header">
-                <span class="section-icon">💋👑🐸</span>
-                <h2 class="section-title" lang="en">The Kiss That Turned Princes to Frogs</h2>
-                <h2 class="section-title" lang="tr">Prensleri Kurbağa'ya Çeviren Öpücük</h2>
+                <span class="section-icon">👑🐸💋</span>
+                <h2 class="section-title en">The Kiss That Turned Princes to Frogs</h2>
+                <h2 class="section-title tr">Prensleri Kurbağa'ya Çeviren Öpücük</h2>
             </div>
             
             <div class="coming-soon">
-                <p style="font-size: 1.2rem; margin-bottom: 0.5rem;" lang="en">✨ Stories coming soon ✨</p>
-                <p lang="en">The tales of kisses that didn't break spells, but created them...</p>
-                <p style="font-size: 1.2rem; margin-bottom: 0.5rem;" lang="tr">✨ Hikayeler yakında ✨</p>
-                <p lang="tr">Büyüyü bozamayan, aksine yaratan öpücüklerin hikayeleri...</p>
+                <p style="font-size: 1.2rem; margin-bottom: 0.5rem;" class="en">✨ Stories coming soon ✨</p>
+                <p class="en">The tales of kisses that didn't break spells, but created them...</p>
+                <p style="font-size: 1.2rem; margin-bottom: 0.5rem;" class="tr">✨ Hikayeler yakında ✨</p>
+                <p class="tr">Büyüyü bozamayan, aksine yaratan öpücüklerin hikayeleri...</p>
             </div>
         </section>
 
         <section id="life" class="section">
             <div class="section-header">
                 <span class="section-icon">🌿✨</span>
-                <h2 class="section-title" lang="en">Life & Reflections</h2>
-                <h2 class="section-title" lang="tr">Hayat ve Düşünceler</h2>
+                <h2 class="section-title en">Life & Reflections</h2>
+                <h2 class="section-title tr">Hayat ve Düşünceler</h2>
             </div>
             
             <div class="coming-soon">
-                <p style="font-size: 1.2rem; margin-bottom: 0.5rem;" lang="en">✨ Reflections coming soon ✨</p>
-                <p lang="en">Thoughts on growth, patterns, and the art of becoming...</p>
-                <p style="font-size: 1.2rem; margin-bottom: 0.5rem;" lang="tr">✨ Düşünceler yakında ✨</p>
-                <p lang="tr">Büyüme, örüntüler ve olma sanatı üzerine düşünceler...</p>
+                <p style="font-size: 1.2rem; margin-bottom: 0.5rem;" class="en">✨ Reflections coming soon ✨</p>
+                <p class="en">Thoughts on growth, patterns, and the art of becoming...</p>
+                <p style="font-size: 1.2rem; margin-bottom: 0.5rem;" class="tr">✨ Düşünceler yakında ✨</p>
+                <p class="tr">Büyüme, örüntüler ve olma sanatı üzerine düşünceler...</p>
             </div>
         </section>
 
         <section id="podcasts" class="section">
             <div class="section-header">
                 <span class="section-icon">🎙️🌍</span>
-                <h2 class="section-title" lang="en">Podcasts to the Earth</h2>
-                <h2 class="section-title" lang="tr">Dünya'ya Podcastler</h2>
+                <h2 class="section-title en">Podcasts to the Earth</h2>
+                <h2 class="section-title tr">Dünya'ya Podcastler</h2>
             </div>
             
             <div class="coming-soon">
-                <p style="font-size: 1.2rem; margin-bottom: 0.5rem;" lang="en">✨ Coming soon ✨</p>
-                <p lang="en">Conversations across continents, cousins across countries, thoughts across time zones...</p>
-                <p style="font-size: 1.2rem; margin-bottom: 0.5rem;" lang="tr">✨ Yakında ✨</p>
-                <p lang="tr">Kıtalar arası sohbetler, ülkeler arası kuzenler, zaman dilimleri arası düşünceler...</p>
+                <p style="font-size: 1.2rem; margin-bottom: 0.5rem;" class="en">✨ Coming soon ✨</p>
+                <p class="en">Conversations across continents, cousins across countries, thoughts across time zones...</p>
+                <p style="font-size: 1.2rem; margin-bottom: 0.5rem;" class="tr">✨ Yakında ✨</p>
+                <p class="tr">Kıtalar arası sohbetler, ülkeler arası kuzenler, zaman dilimleri arası düşünceler...</p>
             </div>
         </section>
 
         <section id="about" class="section">
             <div class="section-header">
                 <span class="section-icon">💭✨</span>
-                <h2 class="section-title" lang="en">Me, Myself & I</h2>
-                <h2 class="section-title" lang="tr">Ben, Benim, Benlik</h2>
+                <h2 class="section-title en">Me, Myself & I</h2>
+                <h2 class="section-title tr">Ben, Benim, Benlik</h2>
             </div>
             
             <div class="post">
-                <h3 class="post-title" lang="en">The Three of Us</h3>
-                <h3 class="post-title" lang="tr">Üçümüz</h3>
-                <div class="post-excerpt" lang="en">
+                <h3 class="post-title en">The Three of Us</h3>
+                <h3 class="post-title tr">Üçümüz</h3>
+                <div class="post-excerpt en">
                     <p style="margin-bottom: 1rem;">
                         This section is waiting for your story. This is where you'll introduce yourself—
                         who you are beyond the resume, beyond the roles. The person who hosts sangria parties, 
@@ -541,7 +534,7 @@
                         Write about what makes your universe uniquely yours.
                     </p>
                 </div>
-                <div class="post-excerpt" lang="tr">
+                <div class="post-excerpt tr">
                     <p style="margin-bottom: 1rem;">
                         Bu bölüm senin hikayeni bekliyor. Burası kendini tanıtacağın yer—
                         özgeçmişinin ötesinde, rollerin ötesinde kim olduğun. Sangria partileri düzenleyen, 
@@ -557,12 +550,12 @@
 
     <footer>
         <div class="footer-frog">🐸</div>
-        <p lang="en">&copy; 2026 Gulhan's Universe Notes. All musings, all mine.</p>
-        <p lang="tr">&copy; 2026 Gülhan'ın Galaksi Notları. Tüm düşünceler benim.</p>
-        <p style="margin-top: 0.5rem; font-size: 0.8rem; opacity: 0.8;" lang="en">
+        <p class="en">&copy; 2026 Gulhan's Universe Notes. All musings, all mine.</p>
+        <p class="tr">&copy; 2026 Gülhan'ın Galaksi Notları. Tüm düşünceler benim.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem; opacity: 0.8;" class="en">
             "Sometimes the prince was the frog all along." 🌙
         </p>
-        <p style="margin-top: 0.5rem; font-size: 0.8rem; opacity: 0.8;" lang="tr">
+        <p style="margin-top: 0.5rem; font-size: 0.8rem; opacity: 0.8;" class="tr">
             "Bazen prens en başından beri kurbağaydı." 🌙
         </p>
     </footer>
