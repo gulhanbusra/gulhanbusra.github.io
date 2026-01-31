@@ -32,7 +32,6 @@
             overflow-x: hidden;
         }
 
-        /* Animated Background Elements */
         .bg-decoration {
             position: fixed;
             pointer-events: none;
@@ -72,7 +71,6 @@
             50% { transform: rotate(28deg) translateY(30px); }
         }
 
-        /* Header */
         header {
             position: relative;
             text-align: center;
@@ -113,7 +111,6 @@
             font-weight: 400;
         }
 
-        /* Navigation */
         nav {
             position: sticky;
             top: 0;
@@ -156,7 +153,6 @@
             color: white;
         }
 
-        /* Main Content */
         main {
             position: relative;
             max-width: 800px;
@@ -206,7 +202,6 @@
             font-weight: 700;
         }
 
-        /* Blog Posts */
         .post {
             background: white;
             padding: 2rem;
@@ -259,7 +254,6 @@
             border-bottom-color: var(--pink);
         }
 
-        /* Welcome Message */
         .welcome {
             background: linear-gradient(135deg, var(--sage) 0%, var(--forest) 100%);
             color: white;
@@ -296,7 +290,6 @@
             z-index: 1;
         }
 
-        /* Footer */
         footer {
             text-align: center;
             padding: 3rem 2rem;
@@ -316,7 +309,16 @@
             animation: hop 3s ease-in-out infinite;
         }
 
-        /* Responsive */
+        .coming-soon {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: var(--sage);
+            font-style: italic;
+            background: linear-gradient(135deg, rgba(184, 230, 201, 0.1) 0%, rgba(232, 180, 188, 0.1) 100%);
+            border-radius: 12px;
+            border: 2px dashed var(--sage);
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2.5rem;
@@ -337,17 +339,6 @@
             main {
                 padding: 0 1.5rem;
             }
-        }
-
-        /* Placeholder for empty sections */
-        .coming-soon {
-            text-align: center;
-            padding: 3rem 2rem;
-            color: var(--sage);
-            font-style: italic;
-            background: linear-gradient(135deg, rgba(184, 230, 201, 0.1) 0%, rgba(232, 180, 188, 0.1) 100%);
-            border-radius: 12px;
-            border: 2px dashed var(--sage);
         }
     </style>
 </head>
@@ -380,7 +371,6 @@
             </p>
         </div>
 
-        <!-- Section 1: The Princess & The Frogs -->
         <section id="frogs" class="section">
             <div class="section-header">
                 <span class="section-icon">👑🐸</span>
@@ -393,7 +383,6 @@
             </div>
         </section>
 
-        <!-- Section 2: Life & Reflections -->
         <section id="life" class="section">
             <div class="section-header">
                 <span class="section-icon">🌿</span>
@@ -406,7 +395,6 @@
             </div>
         </section>
 
-        <!-- Section 3: About -->
         <section id="about" class="section">
             <div class="section-header">
                 <span class="section-icon">💭</span>
@@ -438,16 +426,13 @@
     </footer>
 
     <script>
-        // Smooth scrolling for navigation
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 
-                // Update active state
                 document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
                 this.classList.add('active');
                 
-                // Smooth scroll
                 const targetId = this.getAttribute('href');
                 if (targetId === '#home') {
                     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -461,7 +446,6 @@
             });
         });
 
-        // Update active nav on scroll
         window.addEventListener('scroll', function() {
             const sections = document.querySelectorAll('.section');
             let current = '';
