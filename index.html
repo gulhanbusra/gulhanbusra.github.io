@@ -70,7 +70,10 @@
             0%, 100% { transform: rotate(25deg) translateY(0px); }
             50% { transform: rotate(28deg) translateY(30px); }
         }
-
+        @keyframes float-kiss {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+           50% { transform: translateY(-10px) rotate(5deg); }
+        }
         header {
             position: relative;
             text-align: center;
@@ -85,7 +88,17 @@
             display: inline-block;
             animation: hop 3s ease-in-out infinite;
         }
+       .kiss-icon {
+           font-size: 4rem;
+           margin-bottom: 1rem;
+           display: inline-block;
+           animation: float-kiss 3s ease-in-out infinite;
+}
 
+@keyframes float-kiss {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(5deg); }
+}
         @keyframes hop {
             0%, 100% { transform: translateY(0) rotate(0deg); }
             10% { transform: translateY(-15px) rotate(-5deg); }
