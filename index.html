@@ -71,7 +71,6 @@
             50% { transform: rotate(28deg) translateY(30px); }
         }
 
-        /* Language Switcher */
         .language-switcher {
             position: fixed;
             top: 20px;
@@ -165,10 +164,10 @@
         }
 
         .nav-container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
         }
@@ -212,6 +211,7 @@
         .section:nth-child(1) { animation-delay: 0.2s; }
         .section:nth-child(2) { animation-delay: 0.4s; }
         .section:nth-child(3) { animation-delay: 0.6s; }
+        .section:nth-child(4) { animation-delay: 0.8s; }
 
         @keyframes fadeIn {
             from {
@@ -346,7 +346,26 @@
             border: 2px dashed var(--sage);
         }
 
-        /* Language-specific content */
+        .podcast-player {
+            background: linear-gradient(135deg, var(--pink) 0%, var(--rose) 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .podcast-player h4 {
+            font-family: 'Philosopher', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .podcast-player p {
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
         [lang="tr"] {
             display: none;
         }
@@ -365,7 +384,12 @@
             }
 
             .nav-container {
-                gap: 1rem;
+                gap: 0.8rem;
+            }
+
+            .nav-link {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
             }
 
             .section-title {
@@ -397,7 +421,6 @@
     <div class="bg-decoration lily-pad-1"></div>
     <div class="bg-decoration lily-pad-2"></div>
 
-    <!-- Language Switcher -->
     <div class="language-switcher">
         <button class="lang-btn active" onclick="switchLanguage('en')">🇬🇧 EN</button>
         <span class="lang-separator">|</span>
@@ -409,34 +432,38 @@
         <h1 lang="en">Gulhan's Universe Notes</h1>
         <h1 lang="tr">Gülhan'ın Galaksi Notları</h1>
         <p class="tagline" lang="en">A diary of thoughts, people, and the princes who turned into frogs 💋</p>
-        <p class="tagline" lang="tr">Düşüncelerim, insanlar ve öptügümde kurbağaya dönüşen prensler hakkında bir günlük 💋</p>
+        <p class="tagline" lang="tr">Düşüncelerim, insanlar ve öptüğümde kurbağaya dönüşen prensler hakkında bir günlük 💋</p>
     </header>
 
     <nav>
         <div class="nav-container">
             <a href="#home" class="nav-link active">
-                <span lang="en">Home</span>
-                <span lang="tr">Ana Sayfa</span>
+                <span lang="en">There's No Place Like Home</span>
+                <span lang="tr">Ev Gibisi Yoktur</span>
             </a>
             <a href="#frogs" class="nav-link">
-                <span lang="en">The Princess & The Frogs</span>
-                <span lang="tr">Prenses ve Kurbağalar</span>
+                <span lang="en">The Kiss & The Frogs</span>
+                <span lang="tr">Öpücük ve Kurbağalar</span>
             </a>
             <a href="#life" class="nav-link">
                 <span lang="en">Life & Reflections</span>
                 <span lang="tr">Hayat ve Düşünceler</span>
             </a>
+            <a href="#podcasts" class="nav-link">
+                <span lang="en">Podcasts to the Earth</span>
+                <span lang="tr">Dünya'ya Podcastler</span>
+            </a>
             <a href="#about" class="nav-link">
-                <span lang="en">About</span>
-                <span lang="tr">Hakkında</span>
+                <span lang="en">Me, Myself & I</span>
+                <span lang="tr">Ben, Benim, Benlik</span>
             </a>
         </div>
     </nav>
 
     <main>
         <div class="welcome">
-            <h2 class="welcome-title" lang="en">Welcome to My Universe</h2>
-            <h2 class="welcome-title" lang="tr">Galaksime Hoş Geldiniz</h2>
+            <h2 class="welcome-title" lang="en">There's No Place Like Home 🏠</h2>
+            <h2 class="welcome-title" lang="tr">Ev Gibisi Yoktur 🏠</h2>
             <p class="welcome-text" lang="en">
                 This is where I collect the fragments of my days—the conversations that linger, 
                 the people who leave marks, and the quiet revelations that appear between 
@@ -451,9 +478,9 @@
 
         <section id="frogs" class="section">
             <div class="section-header">
-                <span class="section-icon">👑🐸</span>
-                <h2 class="section-title" lang="en">The Princess Who Turned Princes to Frogs</h2>
-                <h2 class="section-title" lang="tr">Prensleri Kurbağaya Çeviren Prenses</h2>
+                <span class="section-icon">👑🐸💋</span>
+                <h2 class="section-title" lang="en">The Kiss That Turned Princes to Frogs</h2>
+                <h2 class="section-title" lang="tr">Prensleri Kurbağa'ya Çeviren Öpücük</h2>
             </div>
             
             <div class="coming-soon">
@@ -466,7 +493,7 @@
 
         <section id="life" class="section">
             <div class="section-header">
-                <span class="section-icon">🌿</span>
+                <span class="section-icon">🌿✨</span>
                 <h2 class="section-title" lang="en">Life & Reflections</h2>
                 <h2 class="section-title" lang="tr">Hayat ve Düşünceler</h2>
             </div>
@@ -479,16 +506,31 @@
             </div>
         </section>
 
+        <section id="podcasts" class="section">
+            <div class="section-header">
+                <span class="section-icon">🎙️🌍</span>
+                <h2 class="section-title" lang="en">Podcasts to the Earth</h2>
+                <h2 class="section-title" lang="tr">Dünya'ya Podcastler</h2>
+            </div>
+            
+            <div class="coming-soon">
+                <p style="font-size: 1.2rem; margin-bottom: 0.5rem;" lang="en">✨ Coming soon ✨</p>
+                <p lang="en">Conversations across continents, cousins across countries, thoughts across time zones...</p>
+                <p style="font-size: 1.2rem; margin-bottom: 0.5rem;" lang="tr">✨ Yakında ✨</p>
+                <p lang="tr">Kıtalar arası sohbetler, ülkeler arası kuzenler, zaman dilimleri arası düşünceler...</p>
+            </div>
+        </section>
+
         <section id="about" class="section">
             <div class="section-header">
-                <span class="section-icon">💭</span>
-                <h2 class="section-title" lang="en">About</h2>
-                <h2 class="section-title" lang="tr">Hakkında</h2>
+                <span class="section-icon">💭✨</span>
+                <h2 class="section-title" lang="en">Me, Myself & I</h2>
+                <h2 class="section-title" lang="tr">Ben, Benim, Benlik</h2>
             </div>
             
             <div class="post">
-                <h3 class="post-title" lang="en">Who am I?</h3>
-                <h3 class="post-title" lang="tr">Ben kimim?</h3>
+                <h3 class="post-title" lang="en">The Three of Us</h3>
+                <h3 class="post-title" lang="tr">Üçümüz</h3>
                 <div class="post-excerpt" lang="en">
                     <p style="margin-bottom: 1rem;">
                         This section is waiting for your story. This is where you'll introduce yourself—
@@ -526,7 +568,6 @@
     </footer>
 
     <script>
-        // Language Switcher
         function switchLanguage(lang) {
             const buttons = document.querySelectorAll('.lang-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
@@ -541,11 +582,9 @@
                 document.documentElement.lang = 'en';
             }
             
-            // Save preference
             localStorage.setItem('preferredLanguage', lang);
         }
 
-        // Load saved language preference
         window.addEventListener('DOMContentLoaded', function() {
             const savedLang = localStorage.getItem('preferredLanguage');
             if (savedLang === 'tr') {
@@ -553,7 +592,6 @@
             }
         });
 
-        // Navigation
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
