@@ -1,1 +1,473 @@
-# gulhan.github.io
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gulhan's Universe Notes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Philosopher:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --sage: #8BA888;
+            --forest: #4A6B4E;
+            --mint: #B8E6C9;
+            --pink: #E8B4BC;
+            --rose: #D89CAA;
+            --cream: #FFF9F5;
+            --charcoal: #2C2C2C;
+        }
+
+        body {
+            font-family: 'Crimson Pro', serif;
+            background: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .bg-decoration {
+            position: fixed;
+            pointer-events: none;
+            opacity: 0.03;
+            z-index: 0;
+        }
+
+        .lily-pad-1 {
+            width: 200px;
+            height: 200px;
+            background: var(--sage);
+            border-radius: 50% 50% 0 50%;
+            top: 10%;
+            left: -5%;
+            transform: rotate(-15deg);
+            animation: float1 20s ease-in-out infinite;
+        }
+
+        .lily-pad-2 {
+            width: 150px;
+            height: 150px;
+            background: var(--mint);
+            border-radius: 50% 50% 50% 0;
+            bottom: 15%;
+            right: -3%;
+            transform: rotate(25deg);
+            animation: float2 18s ease-in-out infinite;
+        }
+
+        @keyframes float1 {
+            0%, 100% { transform: rotate(-15deg) translateY(0px); }
+            50% { transform: rotate(-18deg) translateY(-20px); }
+        }
+
+        @keyframes float2 {
+            0%, 100% { transform: rotate(25deg) translateY(0px); }
+            50% { transform: rotate(28deg) translateY(30px); }
+        }
+
+        header {
+            position: relative;
+            text-align: center;
+            padding: 4rem 2rem 3rem;
+            background: linear-gradient(135deg, var(--mint) 0%, var(--cream) 100%);
+            border-bottom: 3px solid var(--sage);
+        }
+
+        .frog-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            animation: hop 3s ease-in-out infinite;
+        }
+
+        @keyframes hop {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            10% { transform: translateY(-15px) rotate(-5deg); }
+            20% { transform: translateY(0) rotate(0deg); }
+            30% { transform: translateY(-10px) rotate(3deg); }
+            40% { transform: translateY(0) rotate(0deg); }
+        }
+
+        h1 {
+            font-family: 'Philosopher', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--forest);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        .tagline {
+            font-family: 'Philosopher', sans-serif;
+            font-size: 1.2rem;
+            color: var(--rose);
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 249, 245, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            border-bottom: 2px solid var(--pink);
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            font-family: 'Philosopher', sans-serif;
+            color: var(--forest);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            font-weight: 400;
+        }
+
+        .nav-link:hover {
+            background: var(--mint);
+            color: var(--charcoal);
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            background: var(--sage);
+            color: white;
+        }
+
+        main {
+            position: relative;
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+            z-index: 1;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .section:nth-child(1) { animation-delay: 0.2s; }
+        .section:nth-child(2) { animation-delay: 0.4s; }
+        .section:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--pink);
+        }
+
+        .section-icon {
+            font-size: 2rem;
+        }
+
+        .section-title {
+            font-family: 'Philosopher', sans-serif;
+            font-size: 2rem;
+            color: var(--forest);
+            font-weight: 700;
+        }
+
+        .post {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--sage);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .post:hover {
+            transform: translateX(8px);
+            box-shadow: 0 6px 20px rgba(138, 168, 136, 0.15);
+            border-left-color: var(--pink);
+        }
+
+        .post-date {
+            font-size: 0.9rem;
+            color: var(--rose);
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+
+        .post-title {
+            font-family: 'Philosopher', sans-serif;
+            font-size: 1.8rem;
+            color: var(--forest);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .post-excerpt {
+            color: var(--charcoal);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .read-more {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--sage);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: var(--forest);
+            border-bottom-color: var(--pink);
+        }
+
+        .welcome {
+            background: linear-gradient(135deg, var(--sage) 0%, var(--forest) 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .welcome::before {
+            content: '🐸';
+            position: absolute;
+            font-size: 8rem;
+            opacity: 0.1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .welcome-title {
+            font-family: 'Philosopher', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .welcome-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: var(--forest);
+            color: var(--mint);
+            margin-top: 4rem;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        .footer-frog {
+            font-size: 1.5rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+            animation: hop 3s ease-in-out infinite;
+        }
+
+        .coming-soon {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: var(--sage);
+            font-style: italic;
+            background: linear-gradient(135deg, rgba(184, 230, 201, 0.1) 0%, rgba(232, 180, 188, 0.1) 100%);
+            border-radius: 12px;
+            border: 2px dashed var(--sage);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-container {
+                gap: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .post-title {
+                font-size: 1.5rem;
+            }
+
+            main {
+                padding: 0 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-decoration lily-pad-1"></div>
+    <div class="bg-decoration lily-pad-2"></div>
+
+    <header>
+        <div class="frog-icon">🐸</div>
+        <h1>Gulhan's Universe Notes</h1>
+        <p class="tagline">A diary of thoughts, people, and the princes who turned into frogs</p>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#frogs" class="nav-link">The Princess & The Frogs</a>
+            <a href="#life" class="nav-link">Life & Reflections</a>
+            <a href="#about" class="nav-link">About</a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="welcome">
+            <h2 class="welcome-title">Welcome to My Universe</h2>
+            <p class="welcome-text">
+                This is where I collect the fragments of my days—the conversations that linger, 
+                the people who leave marks, and the quiet revelations that appear between 
+                the everyday moments. Come, sit with me in this little corner of the internet.
+            </p>
+        </div>
+
+        <section id="frogs" class="section">
+            <div class="section-header">
+                <span class="section-icon">👑🐸</span>
+                <h2 class="section-title">The Princess Who Turned Princes to Frogs</h2>
+            </div>
+            
+            <div class="coming-soon">
+                <p style="font-size: 1.2rem; margin-bottom: 0.5rem;">✨ Stories coming soon ✨</p>
+                <p>The tales of kisses that didn't break spells, but created them...</p>
+            </div>
+        </section>
+
+        <section id="life" class="section">
+            <div class="section-header">
+                <span class="section-icon">🌿</span>
+                <h2 class="section-title">Life & Reflections</h2>
+            </div>
+            
+            <div class="coming-soon">
+                <p style="font-size: 1.2rem; margin-bottom: 0.5rem;">✨ Reflections coming soon ✨</p>
+                <p>Thoughts on growth, patterns, and the art of becoming...</p>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2 class="section-title">About</h2>
+            </div>
+            
+            <div class="post">
+                <h3 class="post-title">Who am I?</h3>
+                <div class="post-excerpt">
+                    <p style="margin-bottom: 1rem;">
+                        This section is waiting for your story. This is where you'll introduce yourself—
+                        who you are beyond the resume, beyond the roles. The person who hosts sangria parties, 
+                        who plays pickleball, who thinks deeply about patterns and connection.
+                    </p>
+                    <p>
+                        Write about what makes your universe uniquely yours.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-frog">🐸</div>
+        <p>&copy; 2026 Gulhan's Universe Notes. All musings, all mine.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem; opacity: 0.8;">
+            "Sometimes the prince was the frog all along." 🌙
+        </p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#home') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        const offsetTop = target.offsetTop - 100;
+                        window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.section');
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                if (window.pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            if (window.pageYOffset < 300) {
+                current = 'home';
+            }
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
